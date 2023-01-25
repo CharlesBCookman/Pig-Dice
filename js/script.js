@@ -37,6 +37,14 @@ function addToTotal(numbers){
 
 //UI Logic
 
+function checkWinner(number, element) {
+    if (number >= 40) {
+        element.innerText = "WINNER WINNER CHICKEN DINNER!!!!";
+    } else {
+        //nothing
+    }
+}
+
 function checkAndSet(sum) {
     let p1Turn = document.querySelector("#p1turn");
     let p2Turn = document.querySelector("#p2turn");
@@ -57,19 +65,8 @@ function checkAndSet(sum) {
     }
 }
 
-function checkWinner(number, element) {
-    if (number >= 40) {
-        element.innerText = "WINNER WINNER CHICKEN DINNER!!!!";
-    } else {
-        //nothing
-    }
-}
-
-
 window.onload = function(){
     let turnValues = [];
-    let p1Score = 0;
-    let p2Score = 0;
     const rollButton = document.querySelector("#roll");
     const endTurnButton = document.querySelector("#end-turn");
     const resetButton = document.querySelector("#reset");
@@ -82,12 +79,21 @@ window.onload = function(){
     
     }
     
-
     endTurnButton.onclick = function(){
         console.log(currentTurn(turnValues)) 
         addToTotal(currentTurn(turnValues))
         endTurn(turnValues, displayDiv);
         turnValues = [];
+    }
+    resetButton.onclick = function(){
+        let p1Turn = document.querySelector("#p1turn");
+        let p2Turn = document.querySelector("#p2turn");
+        let p1Score = document.querySelector("#p1score");
+        let p2Score = document.querySelector("#p2score");
+        p1Score.innerText = '0'
+        p2Score.innerText = '0'
+        p2Turn.setAttribute("class", 'hidden');
+        p1Turn.removeAttribute("class", 'hidden');
     }
 }
 
