@@ -16,9 +16,24 @@ function roll(){
 }
 
 function endTurn(values, div){
-    // values.forEach()
+   
     div.innerHTML = '';
 }
+
+function addToTotal(numbers){
+    let playerSum = 0
+    
+    numbers.forEach(number => {
+        playerSum += number;
+    });
+    
+    
+}
+
+
+
+
+
 
 window.onload = function(){
     let turnValues = [];
@@ -33,10 +48,13 @@ window.onload = function(){
     rollButton.onclick = function(){
     turnValues.push(roll());
     currentTurn(turnValues);
+   
     }
+    console.log(turnValues) 
+    addToTotal(turnValues)
 
     endTurnButton.onclick = function(){
-        endTurn(turnValues, displayDiv, p1Score, p2Score);
+        endTurn(turnValues, displayDiv);
         turnValues = [];
     }
 }
