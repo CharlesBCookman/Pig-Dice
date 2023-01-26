@@ -15,14 +15,7 @@ function roll(){
     return Math.floor(Math.random() * 6 + 1)
 }
 
-function endTurn(values, div){
-    div.innerHTML = '';
-}
-
-
-
 function addToTotal(numbers){
-
     let playerSum = 0
     if (numbers.includes(1)){
     } else {
@@ -32,16 +25,13 @@ function addToTotal(numbers){
     }
     checkAndSet(playerSum);
     console.log(playerSum);
-
 }
 
 //UI Logic
 
 function checkWinner(number, element) {
-    if (number >= 40) {
+    if (number >= 100) {
         element.innerText = "WINNER WINNER CHICKEN DINNER!!!!";
-    } else {
-        //nothing
     }
 }
 
@@ -72,19 +62,18 @@ window.onload = function(){
     const resetButton = document.querySelector("#reset");
     const p = document.createElement("p");
     const displayDiv = document.querySelector("#current-turn-values");
-
     rollButton.onclick = function(){
     turnValues.push(roll());
     currentTurn(turnValues);
-    
     }
     
     endTurnButton.onclick = function(){
         console.log(currentTurn(turnValues)) 
         addToTotal(currentTurn(turnValues))
-        endTurn(turnValues, displayDiv);
+        displayDiv.innerHTML = '';
         turnValues = [];
     }
+    
     resetButton.onclick = function(){
         let p1Turn = document.querySelector("#p1turn");
         let p2Turn = document.querySelector("#p2turn");
