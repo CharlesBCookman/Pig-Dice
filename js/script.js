@@ -1,3 +1,9 @@
+//Object Functions
+function Player(playerName, totalScore){
+    this.playerName = playerName;
+    this.totalScore = totalScore;
+}
+
 //business logic
 function currentTurn(turn){
     const p = document.createElement("p");
@@ -19,8 +25,6 @@ function endTurn(values, div){
     div.innerHTML = '';
 }
 
-
-
 function addToTotal(numbers){
 
     let playerSum = 0
@@ -34,16 +38,28 @@ function addToTotal(numbers){
     console.log(playerSum);
 
 }
-function addPlayer(){
-
-}
-
-function Player(playerName, totalScore){
-    this.playerName = playerName;
-    this.totalScore = totalScore;
-}
 
 //UI Logic
+
+function addPlayer(number){
+    console.log(".player" + number);
+    let player = ".player" + number;
+    let showPlayer = document.querySelectorAll(player);
+    console.log(showPlayer);
+
+    //Sets the index number for each player
+    showPlayer.forEach(element => {
+        element.removeAttribute("class", "hidden");
+    });
+}
+
+function startPlayers(number, values) {
+    for (let i = 1; i <= number; i++){
+    let name = document.querySelector("#player" + number + "-name").value;
+        values[i].append(Player(name, 0));
+    } 
+    console.log(values);
+}
 
 function checkWinner(number, element) {
     if (number >= 40) {
@@ -75,7 +91,9 @@ function checkAndSet(sum) {
 
 window.onload = function(){
     let turnValues = [];
-
+    turnValues.push({ playerTurn: "Player1", Rolls: []});
+    console.log(turnValues);
+    let playerNumber = 0;
     //setting buttons to variables
     const addPlayerButton = document.querySelector("#add-player");
     const startButton = document.querySelector("#start")
@@ -90,20 +108,18 @@ window.onload = function(){
     const startMenuDiv = document.querySelector("#start-menu")
 
     //setting game buttons to hidden on page load
-    rollButton.setAttribute("class", "hidden")
-    endTurnButton.setAttribute("class", "hidden")
-    resetButton.setAttribute("class", 'hidden')
 
     addPlayerButton.onclick = function(){
-
+        playerNumber ++;
+        console.log(playerNumber);
+        addPlayer(playerNumber);
     }
 
     startButton.onclick = function(){
-    
-        rollButton.removeAttribute("class", "hidden")
-        endTurnButton.removeAttribute("class", "hidden")
-        resetButton.removeAttribute("class", 'hidden')
-        startMenuDiv.setAttribute("class", "hidden")
+        console.log(playerNumber);
+        document.querySelector("#game").removeAttribute("class", "hidden");
+        startMenuDiv.setAttribute("class", "hidden");
+        startPlayers(playerNumber, turnValues);
     }
 
     rollButton.onclick = function(){

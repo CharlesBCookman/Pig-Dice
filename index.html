@@ -10,26 +10,47 @@
 </head>
 <body>
     <div id="start-menu">
-            <p>Pig is a simple dice game which in its basic form is playable with just a single die. You win by being the first player to score 100 or more points. To start player 1 throws a die and scores as many points as the total shown on the die providing the die doesn't roll a 1. The player may continue rolling and accumulating points (but risk rolling a 1) or end his turn.
-                <br>
-                <br>
-            Please start the game by adding players and hit the start button!
-            </p>
-            <form>
-                <label for="player1-name">Enter Players Name:</label>
-                <br>
-                <input id="player1-name" type="text">
+        <p>Pig is a simple dice game which in its basic form is playable with just a single die. You win by being the first player to score 100 or more points. To start player 1 throws a die and scores as many points as the total shown on the die providing the die doesn't roll a 1. The player may continue rolling and accumulating points (but risk rolling a 1) or end his turn.
+            <br>
+            <br>
+        Please start the game by adding players and hit the start button!
+        </p>
+        <button id="add-player">Add Player</button>
+        <br>
+        <br>
+        <button id="start">Start!</button>
+        <form>
+            <label class="hidden player1" for="player1-name">Enter Player 1's Name:</label><br>
+            <input class="hidden player1" id="player1-name" type="text"><br><br>
+
+            <label class="hidden  player2" for="player2-name">Enter Player 2's Name:</label><br>
+            <input class="hidden player2" id="player2-name" type="text"><br><br>
+
+            <label class="hidden player3" for="player3-name">Enter Player 3's Name:</label><br>
+            <input class="hidden player3" id="player3-name" type="text"><br><br>
+
+            <label class="hidden player4" for="player4-name">Enter Player 4's Name:</label><br>
+            <input class="hidden player4" id="player4-name" type="text"><br><br>
+
+            <label class="hidden player5" for="player5-name">Enter Player 5's Name:</label><br>
+            <input class="hidden player5" id="player5-name" type="text"><br><br>
+
+            <label class="hidden player6" for="player6-name">Enter Player 6's  Name:</label><br>
+            <input class="hidden player6" id="player6-name" type="text"><br><br>
+
+            <label class="hidden player7" for="player7-name">Enter Player 7's Name:</label><br>
+            <input class="hidden player7" id="player7-name" type="text"><br><br>
+
+            <label class="hidden player8" for="player8-name">Enter Player 8's Name:</label><br>
+            <input class="hidden player8" id="player8-name" type="text"><br><br>
+
+            <label class="hidden player9" for="player9-name">Enter Player 9's Name:</label><br>
+            <input class="hidden player9" id="player9-name" type="text"><br><br>
+            
+            <label class="hidden player10" for="player10-name">Enter Player 10's Name:</label><br>
+            <input class="hidden player10" id="player10-name" type="text"><br><br>
             </form>
-            <br>
-            <button id="add-player">Add Player</button>
-            <br>
-            <br>
-           
-            <button id="start">Start!</button>
-            <br>
-            <br>
-         
-</div>
+    </div>
     <div class="players">
         <!-- <h1>Player 1</h1>
             <h2>Total Score: <span id="p1score">0</span></h2>
@@ -45,7 +66,7 @@
     <div id="current-turn-values">
         
     </div>
-    <div id="game">
+    <div class="hidden" id="game">
         <button id="roll">Roll The Dice!</button><br><br>
         <button id="end-turn">End Turn</button><br><br><br><br><br>
         <button id="reset">Reset</button>
