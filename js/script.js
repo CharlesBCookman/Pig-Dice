@@ -34,6 +34,14 @@ function addToTotal(numbers){
     console.log(playerSum);
 
 }
+function addPlayer(){
+
+}
+
+function Player(playerName, totalScore){
+    this.playerName = playerName;
+    this.totalScore = totalScore;
+}
 
 //UI Logic
 
@@ -67,16 +75,40 @@ function checkAndSet(sum) {
 
 window.onload = function(){
     let turnValues = [];
+
+    //setting buttons to variables
+    const addPlayerButton = document.querySelector("#add-player");
+    const startButton = document.querySelector("#start")
     const rollButton = document.querySelector("#roll");
     const endTurnButton = document.querySelector("#end-turn");
     const resetButton = document.querySelector("#reset");
+    
     const p = document.createElement("p");
+    
+    //setting divs to variables
     const displayDiv = document.querySelector("#current-turn-values");
+    const startMenuDiv = document.querySelector("#start-menu")
+
+    //setting game buttons to hidden on page load
+    rollButton.setAttribute("class", "hidden")
+    endTurnButton.setAttribute("class", "hidden")
+    resetButton.setAttribute("class", 'hidden')
+
+    addPlayerButton.onclick = function(){
+
+    }
+
+    startButton.onclick = function(){
+    
+        rollButton.removeAttribute("class", "hidden")
+        endTurnButton.removeAttribute("class", "hidden")
+        resetButton.removeAttribute("class", 'hidden')
+        startMenuDiv.setAttribute("class", "hidden")
+    }
 
     rollButton.onclick = function(){
     turnValues.push(roll());
     currentTurn(turnValues);
-    
     }
     
     endTurnButton.onclick = function(){

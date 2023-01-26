@@ -9,21 +9,46 @@
     <title>Pig Dice</title>
 </head>
 <body>
+    <div id="start-menu">
+            <p>Pig is a simple dice game which in its basic form is playable with just a single die. You win by being the first player to score 100 or more points. To start player 1 throws a die and scores as many points as the total shown on the die providing the die doesn't roll a 1. The player may continue rolling and accumulating points (but risk rolling a 1) or end his turn.
+                <br>
+                <br>
+            Please start the game by adding players and hit the start button!
+            </p>
+            <form>
+                <label for="player1-name">Enter Players Name:</label>
+                <br>
+                <input id="player1-name" type="text">
+            </form>
+            <br>
+            <button id="add-player">Add Player</button>
+            <br>
+            <br>
+           
+            <button id="start">Start!</button>
+            <br>
+            <br>
+         
+</div>
     <div class="players">
-        <h1>Player 1</h1>
+        <!-- <h1>Player 1</h1>
             <h2>Total Score: <span id="p1score">0</span></h2>
             <br>
 
         <h1>Player 2</h1>
         <h2>Total Score: <span id="p2score">0</span></h2>
-        <br>
+        <br> -->
     </div>
-    <h2><span id="p1turn">Player 1's </span><span id="p2turn" class="hidden">Player 2's</span> Turn:</h2><br>
+    
+    <!-- <h2><span id="p1turn">Player 1's </span><span id="p2turn" class="hidden">Player 2's</span> Turn:</h2><br> -->
+
     <div id="current-turn-values">
         
     </div>
-    <button id="roll">Roll The Dice!</button><br><br>
-    <button id="end-turn">End Turn</button><br><br><br><br><br>
-    <button id="reset">Reset</button>
+    <div id="game">
+        <button id="roll">Roll The Dice!</button><br><br>
+        <button id="end-turn">End Turn</button><br><br><br><br><br>
+        <button id="reset">Reset</button>
+    </div>
 </body>
 </html>
