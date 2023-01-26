@@ -42,10 +42,8 @@ function addToTotal(numbers){
 //UI Logic
 
 function addPlayer(number){
-    console.log(".player" + number);
     let player = ".player" + number;
     let showPlayer = document.querySelectorAll(player);
-    console.log(showPlayer);
 
     //Sets the index number for each player
     showPlayer.forEach(element => {
@@ -53,11 +51,31 @@ function addPlayer(number){
     });
 }
 
-function startPlayers(number, values) {
+function displayPlayers(number){
+
+    for(let i = 0; i < number; i++){
+       let playersDiv = document.querySelector("#players")
+       playersDiv.append(number)
+    }
+
+}
+
+function startPlayers(number, values, startButton, startMenuDiv) {
+    if (number !== 0 ){
     for (let i = 1; i <= number; i++){
-    let name = document.querySelector("#player" + number + "-name").value;
-        values[i].append(Player(name, 0));
+    let nameSelector = "#player" + i.toString() + "-name"
+    console.log(nameSelector);
+    let name = document.querySelector(nameSelector).value;
+    console.log(name);
+    values.push(new Player(name, 0));
+    document.querySelector("#game").removeAttribute("class", "hidden");
+    startMenuDiv.setAttribute("class", "hidden")
     } 
+} else {
+    const noPlayers = document.createElement("p");
+    noPlayers.innerText = "Please Add Players to Start Game";
+    startButton.after(noPlayers)
+} 
     console.log(values);
 }
 
@@ -116,10 +134,7 @@ window.onload = function(){
     }
 
     startButton.onclick = function(){
-        console.log(playerNumber);
-        document.querySelector("#game").removeAttribute("class", "hidden");
-        startMenuDiv.setAttribute("class", "hidden");
-        startPlayers(playerNumber, turnValues);
+        startPlayers(playerNumber, turnValues, startButton, startMenuDiv);
     }
 
     rollButton.onclick = function(){
